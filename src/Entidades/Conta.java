@@ -7,9 +7,6 @@ public class Conta {
 	private Integer senha;
 	private Double saldo;
 
-	
-	
-
 	public Conta() {
 		super();
 	}
@@ -34,20 +31,15 @@ public class Conta {
 		return saldo;
 	}
 	
-	
-
 	public Integer getSenha() {
 		return senha;
 	}
 
-	
 	public void deposito(Double montante) {
-
 		saldo += montante;
 	}
 
 	public void saque(Double montante) {
-
 		saldo -= montante;
 	}
 	
@@ -88,7 +80,4 @@ public class Conta {
 			return false;
 		return true;
 	}
-	
-	
-
 }

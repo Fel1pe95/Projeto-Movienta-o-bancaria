@@ -10,7 +10,8 @@ public class Cliente {
 
 	private String nome;
 	private Integer cpf;
-	Conta conta = new Conta();
+	private Conta conta;
+	
 	LeituraGravacao leitura = new LeituraGravacao();
 	Map<Integer, Cliente> agencia = new LinkedHashMap<>();
 

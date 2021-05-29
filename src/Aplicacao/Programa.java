@@ -10,15 +10,12 @@ public class Programa {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		Menus menu = new Menus();
 		Cliente c = new Cliente();
-
-		LeituraGravacao leitura = new LeituraGravacao();
 		Integer opcao;
-		String caminhoArq = "C:\\Users\\Andressa\\Desktop\\Programação\\Projeto movientacao bancaria\\Clientes\\Clientes.csv";
-		leitura.LeituraCliente(caminhoArq, c.getAgencia());
+		
+		LeituraGravacao.LeituraCliente(c.getAgencia());
 		do {
-			menu.menus();
+			Menus.menus();
 			opcao = sc.nextInt();
 			switch (opcao) {
 

@@ -12,11 +12,10 @@ import Entidades.Conta;
 
 public class LeituraGravacao {
 
-	public void LeituraCliente(String caminho, Map<Integer, Cliente>map) {
+	public static void LeituraCliente(Map<Integer, Cliente>map) {
 
-		
+		String caminho = "C:\\Users\\Andressa\\Desktop\\Programação\\Projeto movientacao bancaria\\Clientes\\Clientes.csv";
 		try (BufferedReader brr = new BufferedReader(new FileReader(caminho))) {
-
 			String linha = brr.readLine();
 			while (linha != null) {
 
