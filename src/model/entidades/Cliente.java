@@ -1,18 +1,19 @@
-package Entidades;
+package model.entidades;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
-import Entidades.servico.LeituraGravacao;
+import model.Dao.InstanciaDao;
+import model.Dao.impl.ClienteAcess;
 
 public class Cliente {
 
 	private String nome;
 	private Integer cpf;
 	private Conta conta;
-	
-	LeituraGravacao leitura = new LeituraGravacao();
+
+	ClienteAcess acess = InstanciaDao.instanciaCliente();
 	Map<Integer, Cliente> agencia = new LinkedHashMap<>();
 
 	public Cliente() {
@@ -53,14 +54,14 @@ public class Cliente {
 
 	public void CadastrarCliente(String nome, Integer cpf, Integer senha, Map<Integer, Cliente> map) {
 
-		String caminhoArq = "C:\\Users\\Andressa\\Desktop\\Programação\\Projeto movientacao bancaria\\Clientes\\Clientes.csv";
 		Random random = new Random();
 		Integer numConta = random.nextInt(4000) + 1000;
 		Integer Agencia = random.nextInt(4000) + 1000;
 		double saldo = 0;
 
 		map.put(senha, new Cliente(nome, cpf, new Conta(Agencia, numConta, senha, saldo)));
-		leitura.gravacaoCLiente(caminhoArq, new Cliente(nome, cpf, new Conta(Agencia, numConta, senha, saldo)));
+
+		acess.inserirCliente(map);
 
 		System.out.println("Conta: " + numConta);
 		System.out.println("Agencia: " + Agencia);

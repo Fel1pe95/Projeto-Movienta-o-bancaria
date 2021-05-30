@@ -1,4 +1,4 @@
-package Entidades.servico;
+package model.menus;
 
 public class Menus {
 

@@ -1,4 +1,4 @@
-package Entidades;
+package model.entidades;
 
 public class Conta {
 

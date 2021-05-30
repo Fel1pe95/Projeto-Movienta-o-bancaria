@@ -1,9 +1,10 @@
 package Aplicacao;
 
 import java.util.Scanner;
-import Entidades.Cliente;
-import Entidades.servico.LeituraGravacao;
-import Entidades.servico.Menus;
+import model.Dao.InstanciaDao;
+import model.Dao.impl.ClienteAcess;
+import model.entidades.Cliente;
+import model.menus.Menus;
 
 public class Programa {
 
@@ -12,8 +13,10 @@ public class Programa {
 		Scanner sc = new Scanner(System.in);
 		Cliente c = new Cliente();
 		Integer opcao;
-		
-		LeituraGravacao.LeituraCliente(c.getAgencia());
+
+		ClienteAcess acess = InstanciaDao.instanciaCliente();
+		acess.LeituraCliente(c.getAgencia());
+
 		do {
 			Menus.menus();
 			opcao = sc.nextInt();
@@ -66,6 +69,7 @@ public class Programa {
 
 		} while (opcao != 0);
 
+		acess.gravacaoCLiente(acess.caminho(), c.getAgencia());
 		sc.close();
 	}
 }
